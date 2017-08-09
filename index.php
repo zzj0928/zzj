@@ -18,7 +18,9 @@ if (!defined('PATH_ROOT')) {
 require_once(PATH_ROOT.DS.'includes'.DS.'defines.inc.php'); //各文件夹的路径
 require_once(PATH_ROOT.DS.'includes'.DS.'framework.inc.php');
 
- // echo $request->Get('a');//参数的获取GET方法
- // $request->Post('a');//获取POST参数
+// echo $request->Get('a');//参数的获取GET方法
+// $request->Post('a');//获取POST参数
+
+//edit by zzj
 
 ?>
