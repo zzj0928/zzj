@@ -14,5 +14,3 @@ define( 'PATH_INCLUDE', PATH_ROOT.DS.'includes');
 define( 'PATH_CLASS', PATH_ROOT.DS.'class' );
 //配置文件路径
 define( 'PATH_CONFIG', PATH_ROOT );
-
-?>

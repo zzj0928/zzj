@@ -29,6 +29,3 @@ if(empty($task)){
 }else{
 	$Control->$task();
 }
-
-
-?>
