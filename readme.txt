@@ -257,6 +257,7 @@ class Model extends Base
 ?>
 
 九. 路由文件, router.inc.php
+url实例：http://www.xxx.com/index.php?c=test&a=index
 跟据URL,指定到相应的控制器,跟据网站的URL表现形式编写
 <?php
 // no direct access
