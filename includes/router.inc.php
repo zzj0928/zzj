@@ -1,4 +1,8 @@
 <?php
+/**
+ * 路由规则
+ * @author zzj
+ */
 // no direct access
 defined( 'EXEC' ) or die( 'Restricted access' );
 
@@ -16,7 +20,7 @@ $task =@$request->get('a');
 if(empty($option)){
 	$option=$load->config('index_router');
 }
-include_once (PATH_BASE.DS.'controls'.DS.$option.'.php');
+include_once (PATH_BASE.DS.'controls'.DS.'controls_'.$option.'.php');
 
 $Control=new $option();
 

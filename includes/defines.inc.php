@@ -1,5 +1,7 @@
 <?php
 /*
+ * 常量定义
+ * @author zzj
 */
 // no direct access
 defined( 'EXEC' ) or die( 'Restricted access' ); //如果单独执行这个文件,将不能执行

@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * 参数处理类
+ * @author zzj
+ */
 // no direct access
 defined( 'EXEC' ) or die( 'Restricted access' );
 

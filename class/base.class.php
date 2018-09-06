@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * 基类
+ * @author zzj
+ */
 // no direct access
 defined( 'EXEC' ) or die( 'Restricted access' );
 
@@ -9,6 +12,7 @@ class Base extends Error
 	var $path_root ='';
 	var $path_class ='';
 	var $path_control ='';
+	var $path_model ='';
 
 	/*/构造函数
 	*@parame path 应用路径
@@ -18,12 +22,13 @@ class Base extends Error
 		$this->path_root =PATH_ROOT;
 		$this->path_class =PATH_CLASS;
 		$this->path_control=PATH_BASE.DS.'controls';
+		$this->path_model=PATH_BASE.DS.'model';
 	}
 
 	//加载模型
 	//load model
 	function model($name){
-		include_once ($this->path_model.DS.$name.'.php');
+		include_once ($this->path_model.DS.'model_'.$name.'.php');
 
 		$model=null;
 		if($model==null){
@@ -83,8 +88,6 @@ class Base extends Error
 	//return config value
 	function config($parameter){
 		$conf = require_once(PATH_CONFIG.DS.'config.php');
-
-		// return CONFIG::Ini()->$parameter;
 		return $conf[$parameter];
 	}
 }
