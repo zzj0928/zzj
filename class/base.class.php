@@ -22,20 +22,19 @@ class Base extends Error
 		$this->path_root =PATH_ROOT;
 		$this->path_class =PATH_CLASS;
 		$this->path_control=PATH_BASE.DS.'controls';
-		$this->path_model=PATH_BASE.DS.'model';
+		$this->path_model=PATH_BASE.DS.'models';
 	}
 
 	//加载模型
 	//load model
 	function model($name){
-		include_once ($this->path_model.DS.'model_'.$name.'.php');
-
+		$name = 'model_' . $name;
+		include_once ($this->path_model.DS.$name.'.php');
 		$model=null;
 		if($model==null){
 			$model=new name();
 		}
 		return $model;
-
 	}
 
 	//output page

@@ -22,9 +22,8 @@ class Control extends Base{
 
 	//load model
 	function model($name){
-
+		$name = 'model_' . $name;
 		include_once (PATH_BASE.DS.'models'.DS.$name.'.php');
-
 		if($this->model==null){
 			$this->model=new $name();
 		}
