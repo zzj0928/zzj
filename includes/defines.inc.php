@@ -12,5 +12,7 @@ define( 'PATH_SITE', PATH_ROOT );
 define( 'PATH_INCLUDE', PATH_ROOT.DS.'includes');
 //类文件路径
 define( 'PATH_CLASS', PATH_ROOT.DS.'class' );
+//公共文件路径
+define( 'PATH_COMMON', PATH_ROOT.DS.'common' );
 //配置文件路径
-define( 'PATH_CONFIG', PATH_ROOT );
+define( 'PATH_CONFIG', PATH_COMMON.DS.'conf');

@@ -4,8 +4,6 @@
  * @author zzj
  */
 // no direct access
-defined( 'EXEC' ) or die( 'Restricted access' );
-
 class Base extends Error
 {
 
@@ -19,22 +17,27 @@ class Base extends Error
   *return null
   */
   public function Base(){
+    if(is_file(PATH_COMMON.DS.'conf'.DS.'config.php') ){
+      // config.php文件返回一个数组
+      // C函数判断是一个数组，则会将这个数组赋值给 $_config，下面我们用在这个变量里面读取配置 
+      C(include PATH_COMMON.DS.'conf'.DS.'config.php');
+    }
     $this->path_root =PATH_ROOT;
     $this->path_class =PATH_CLASS;
     $this->path_control=PATH_BASE.DS.'controls';
     $this->path_model=PATH_BASE.DS.'models';
+    load_ext_file(PATH_COMMON);
   }
 
   //加载模型
   //load model
   function model($name){
     $name = 'model_' . $name;
-    include_once ($this->path_model.DS.$name.'.php');
-    $model=null;
-    if($model==null){
-      $model=new name();
+    include_once (PATH_BASE.DS.'models'.DS.$name.'.php');
+    if($this->model==null){
+      $this->model=new $name();
     }
-    return $model;
+    return $this->model;
   }
 
   //output page
@@ -43,9 +46,12 @@ class Base extends Error
   *@paramater data replace
   *
   */
-  function view($name,$data){
-    $Template=self::template($name);
-    $Template->output($data);
+  function view($name,$data=''){
+    $Template=$this->template($name.'.html');
+    $Template->assign('site_root',$this->config('site_root'));
+
+    $Template->assign($data);
+    $Template->output();
     unset($Template);
   }
 
@@ -84,10 +90,4 @@ class Base extends Error
     }
   }
 
-  //return config value
-  function config($parameter){
-    $conf = require_once(PATH_CONFIG.DS.'config.php');
-    return $conf[$parameter];
-  }
 }
-?>
