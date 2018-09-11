@@ -11,11 +11,11 @@ define('DS', DIRECTORY_SEPARATOR); //目录的分隔,’/’ 或’’
 
 define( 'PATH_ROOT', PATH_BASE ); //站点的跟目录,跟据你的入口文件存放来定义,如果放在子目录下,则要做相应修改.
 if (!defined('PATH_ROOT')) {
-	//把路径分组
-	$parts = explode( DS, PATH_BASE );
-	//去除最后一个路径名
-	array_pop( $parts );
-	define( 'PATH_ROOT', implode( DS, $parts ) );
+  //把路径分组
+  $parts = explode( DS, PATH_BASE );
+  //去除最后一个路径名
+  array_pop( $parts );
+  define( 'PATH_ROOT', implode( DS, $parts ) );
 }
 
 require_once(PATH_ROOT.DS.'includes'.DS.'defines.inc.php'); //各文件夹的路径

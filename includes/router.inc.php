@@ -18,14 +18,14 @@ $task =@$request->get('a');
 
 //如果未设置文件
 if(empty($option)){
-	$option=$load->config('index_router');
+  $option=$load->config('index_router');
 }
 include_once (PATH_BASE.DS.'controls'.DS.'controls_'.$option.'.php');
 
 $Control=new $option();
 
 if(empty($task)){
-	$Control->index();
+  $Control->index();
 }else{
-	$Control->$task();
+  $Control->$task();
 }
