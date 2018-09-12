@@ -4,6 +4,8 @@
  * @author zzj 210180911
  *
  **/
+// no direct access
+defined( 'EXEC' ) or die( 'Restricted access' );
 require_once( PATH_COMMON.DS.'fun'.DS.'my.php'); //
 /**
  * 加载动态扩展文件

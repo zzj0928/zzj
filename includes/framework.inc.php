@@ -7,6 +7,8 @@
 defined( 'EXEC' ) or die( 'Restricted access' );
 //load error class
 require_once( PATH_CLASS.DS.'error.class.php'); //包含错误处理文件
+//load date class
+require_once( PATH_CLASS.DS.'date.class.php' ); //包含基类文件
 //load base class
 require_once( PATH_CLASS.DS.'base.class.php' ); //包含基类文件
 require_once( PATH_CLASS.DS.'control.class.php'); //

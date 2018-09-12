@@ -4,13 +4,16 @@
  * @author zzj
  */
 // no direct access
-class Base extends Error
+defined( 'EXEC' ) or die( 'Restricted access' );
+
+class Base extends Date
 {
 
   var $path_root ='';
   var $path_class ='';
   var $path_control ='';
   var $path_model ='';
+  var $db ='';
 
   /*/构造函数
   *@parame path 应用路径
@@ -54,27 +57,12 @@ class Base extends Error
     $Template->output();
     unset($Template);
   }
-
-  //create database connection
-  function database(){
-    include_once (PATH_CLASS.DS.'db'.DS.'adodb.inc.php');
-    $this->db = ADONewConnection();
-    $this->db->createdatabase = true;
-    $result = $this->db->Connect(self::config('db_host') , self::config('db_user'), self::config('db_password'), self::config('db_database') );
-    if(!$result){
-      die("Could not connect to the database.");
-    }else{
-      $this->db->Execute("set names 'utf8'");
-      return $this->db;
-    }
-  }
-
   //create template 
   function template($file){
     include_once (PATH_CLASS.DS.'template'.DS.'class.smarttemplate.php');
     $Template = new Smarttemplate($file);
-    $Template->template_dir=PATH_BASE.self::config('template_dir');
-    $Template->cache_dir =PATH_BASE.self::config('cache_dir');
+    $Template->template_dir=PATH_BASE.C('template_dir');
+    $Template->cache_dir =PATH_BASE.C('cache_dir');
 
     return $Template;
   }

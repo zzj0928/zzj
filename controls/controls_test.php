@@ -10,12 +10,25 @@ defined( 'EXEC' ) or die( 'Restricted access' );
 class test extends Control{
   //测试首页
   public function index(){
+
+
+    // $sql = "INSERT INTO `my_test` (`name`, `addtime`) VALUES ('gsdf', '2018-09-11 18:07:22')"; 
+    $sql = "select * from `my_test` order by id desc"; 
+    $res = Date::quere($sql);
+    var_dump($res);
+  	
+  	exit;
+  	///////////////////////////////
     $a = '12345678';
     $str = '';
     for ($i=0; $i < strlen($a); $i++) {
       $str .= $this->model('test')->numToStr($a[$i]);
+      $arr[] = $this->model('test')->numToStr($a[$i]);
     }
-    echo $str;
+    $returnArr['code']=200;
+    $returnArr['info']='ok';
+    $returnArr['data']=$arr;
+    echo_json($returnArr);
   }
 
 }
