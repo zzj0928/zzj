@@ -15,7 +15,7 @@ class test extends Control{
     // $sql = "INSERT INTO `my_test` (`name`, `addtime`) VALUES ('gsdf', '2018-09-11 18:07:22')"; 
     $sql = "select * from `my_test` order by id desc"; 
     $res = Date::quere($sql);
-    var_dump($res);
+    echo_json($res);
   	
   	exit;
   	///////////////////////////////
