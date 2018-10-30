@@ -77,5 +77,12 @@ class Base extends Date
       return new $className();
     }
   }
+  //return config value
+  function config($parameter){
+    $conf = require_once(PATH_CONFIG.DS.'config.php');
+
+    // return CONFIG::Ini()->$parameter;
+    return $conf[$parameter];
+  }
 
 }
