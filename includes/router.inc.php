@@ -2,6 +2,7 @@
 /**
  * 路由规则
  * @author zzj
+ * http://www.zzj.com/index.php?c=index&a=index
  */
 // no direct access
 defined( 'EXEC' ) or die( 'Restricted access' );

@@ -2,9 +2,10 @@
 // no direct access
 defined( 'EXEC' ) or die( 'Restricted access' );
 
-class index extends Base{
-  public function index(){
-    echo 'index/index';
+class index extends Base
+{
+    public function index(){
+        echo 'index/index';
   }
 
   public function debx(){ 
